@@ -1,5 +1,5 @@
 const url = 
-"https://api.open-meteo.com/v1/forecast?latitude=35.22709&longitude=-80.84313&hourly=temperature_2m,wind_speed_10m&current=temperature_2m" + "&temperature_unit=fahrenheit";
+"https://api.open-meteo.com/v1/forecast?latitude=35.22709&longitude=-80.84313&hourly=temperature_2m,wind_speed_10m&current=temperature_2m" + "&temperature_unit=fahrenheit" + "&timezone=auto" + "&current=is_day";
 
 const button =document.getElementById("check-btn");
 const weatherArea = document.getElementById("weather");
@@ -28,6 +28,11 @@ async function getWeather() {
     const time = document.createElement("p");
     time.className = "fs-4";
     time.textContent = "Date & Time:  " + " " + data.current.time;
+
+    /*Display day on Homepage 
+    const precipitation = document.createElement("p");
+    precipitation.className = "fs-4";
+    precipitation.textContent = "Today's day is: " + " " + data.current_unit.is_day;   */
 
     weatherArea.appendChild(time);
 }
